@@ -1,0 +1,15 @@
+# Dependências do projeto LLM Chat
+
+# Cliente oficial do Ollama com suporte a streaming
+ollama>=0.2.0
+
+# Nota: tkinter já vem na instalação padrão do Python
+# Se houver erro de importação, instale via sistema operacional:
+# - Ubuntu/Debian: sudo apt-get install python3-tk
+# - Fedora: sudo dnf install python3-tkinter
+# - macOS: já incluído
+# - Windows: já incluído
+
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+httpx>=0.27.0

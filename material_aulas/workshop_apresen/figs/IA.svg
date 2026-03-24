@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="520"
+   height="340"
+   viewBox="0 0 520 340"
+   font-family="'Segoe UI', Arial, sans-serif"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="IA.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.9501376"
+     inkscape:cx="288.95396"
+     inkscape:cy="179.7309"
+     inkscape:window-width="1920"
+     inkscape:window-height="1022"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <!-- Background -->
+  <rect
+     width="520"
+     height="340"
+     fill="#0f0f1a"
+     rx="16"
+     id="rect1" />
+  <!-- IA — outermost -->
+  <rect
+     x="18"
+     y="18"
+     width="484"
+     height="304"
+     rx="22"
+     fill="#1a1a3e"
+     stroke="#4a9eff"
+     stroke-width="2"
+     id="rect2" />
+  <text
+     x="36"
+     y="52"
+     font-size="18"
+     font-weight="bold"
+     fill="#4a9eff"
+     id="text2">
+    Inteligência Artificial
+  </text>
+  <text
+     x="36"
+     y="72"
+     font-size="11"
+     fill="#8ab4d4"
+     id="text3">
+    Sistemas que realizam tarefas que exigiriam inteligência humana
+  </text>
+  <!-- Machine Learning -->
+  <rect
+     x="52"
+     y="94"
+     width="436"
+     height="214"
+     rx="18"
+     fill="#0d2d4a"
+     stroke="#00b4d8"
+     stroke-width="2"
+     id="rect3" />
+  <text
+     x="70"
+     y="124"
+     font-size="16px"
+     font-weight="bold"
+     fill="#00b4d8"
+     id="text4">Aprendizado de Máquina</text>
+  <text
+     x="70"
+     y="142"
+     font-size="11px"
+     fill="#7ecfe0"
+     id="text5">Aprende padrões a partir de dados, sem ser explicitamente programado</text>
+  <!-- Deep Learning -->
+  <rect
+     x="90"
+     y="164"
+     width="384"
+     height="132"
+     rx="14"
+     fill="#1a0d3e"
+     stroke="#9b5de5"
+     stroke-width="2"
+     id="rect5" />
+  <text
+     x="108"
+     y="192"
+     font-size="15px"
+     font-weight="bold"
+     fill="#c77dff"
+     id="text6">Aprendizado Profundo</text>
+  <text
+     x="108"
+     y="205"
+     font-size="11px"
+     fill="#b39ddb"
+     id="text7"><tspan
+       sodipodi:role="line"
+       id="tspan9"
+       x="108"
+       y="205">Redes neurais com muitas camadas,</tspan><tspan
+       sodipodi:role="line"
+       id="tspan10"
+       x="108"
+       y="218.75">aprendem representações hierárquicas</tspan></text>
+  <!-- Foundation Models -->
+  <rect
+     x="130"
+     y="231"
+     width="328"
+     height="56"
+     rx="10"
+     fill="#3d0a0a"
+     stroke="#ff6b6b"
+     stroke-width="2"
+     id="rect7" />
+  <text
+     x="150"
+     y="255"
+     font-size="14px"
+     font-weight="bold"
+     fill="#ff6b6b"
+     id="text8">Modelos Fundacionais</text>
+  <text
+     x="150"
+     y="274"
+     font-size="11px"
+     fill="#ffaaaa"
+     id="text9">Treinados em escala massiva, adaptáveis a múltiplas tarefas</text>
+</svg>

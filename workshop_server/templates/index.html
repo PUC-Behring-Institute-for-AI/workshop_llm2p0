@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLM Workshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111;
+      --border: #222;
+      --text: #e8e8e8;
+      --muted: #666;
+      --accent-a: #00ff87;   /* raw / completion — green, mechanical */
+      --accent-b: #7b9cff;   /* claude / chatbot — blue, polished */
+      --accent-c: #ff9f43;   /* arena — orange, combative */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    h1 span { color: var(--accent-a); }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      font-weight: 300;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 4px;
+      padding: 2rem;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      transition: opacity 0.2s;
+      opacity: 0;
+    }
+
+    .card.a::before { background: var(--accent-a); }
+    .card.b::before { background: var(--accent-b); }
+    .card.c::before { background: var(--accent-c); }
+
+    .card:hover { transform: translateY(-2px); }
+    .card.a:hover { border-color: var(--accent-a); }
+    .card.b:hover { border-color: var(--accent-b); }
+    .card.c:hover { border-color: var(--accent-c); }
+    .card:hover::before { opacity: 1; }
+
+    .card-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.5rem;
+      border-radius: 2px;
+      align-self: flex-start;
+    }
+
+    .card.a .card-tag { background: #00ff8722; color: var(--accent-a); }
+    .card.b .card-tag { background: #7b9cff22; color: var(--accent-b); }
+    .card.c .card-tag { background: #ff9f4322; color: var(--accent-c); }
+
+    .card h2 {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .card-arrow {
+      margin-top: auto;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card.a .card-arrow { color: var(--accent-a); }
+    .card.b .card-arrow { color: var(--accent-b); }
+    .card.c .card-arrow { color: var(--accent-c); }
+
+    footer {
+      margin-top: 4rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: #333;
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p class="eyebrow">LLM Workshop</p>
+    <h1>It's just<br><span>completion.</span></h1>
+    <p class="subtitle">Two tools. Both talk directly to the model — no product layer, no personas.</p>
+  </header>
+
+  <div class="cards">
+    <a class="card a" href="/explorer">
+      <span class="card-tag">LLM Sand Box</span>
+      <h2>LLM Sand Box</h2>
+      <p>Talk directly to the model. Completion mode: the model continues your text. Chat mode: instruct-tuned models with full parameter control.</p>
+      <div class="card-arrow">Open tool &rarr;</div>
+    </a>
+
+    <a class="card c" href="/arena">
+      <span class="card-tag">Arena</span>
+      <h2>Arena</h2>
+      <p>Two models. One conversation. Pick any two models, give each a persona, set a seed message — then watch them talk to each other.</p>
+      <div class="card-arrow">Open tool &rarr;</div>
+    </a>
+  </div>
+
+  <footer>workshop server running locally &mdash; your machine, your models</footer>
+
+</body>
+</html>
