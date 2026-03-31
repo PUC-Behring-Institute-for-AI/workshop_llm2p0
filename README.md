@@ -28,9 +28,7 @@ Acesse pelo endereço que o instrutor informar em sala — geralmente `http://19
 ```
 workshop_llm2p0/
 ├── material_aulas/      # Conteúdo do curso (slides, links, prompts de demo)
-├── workshop_server/     # Servidor web para a parte prática
-├── Local_UI/            # GUI alternativa em Tkinter (sem browser)
-└── sandbox/             # Notebooks de experimentação com Ollama
+└── workshop_server/     # Servidor web para a parte prática
 ```
 
 ### Setup rápido do servidor
