@@ -88,6 +88,23 @@
     input[type="range"] { width: 100%; -webkit-appearance: none; height: 2px; background: var(--border); border-radius: 2px; outline: none; }
     input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; cursor: pointer; }
 
+    input.param-input {
+      width: 4.5rem;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid transparent;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-align: right;
+      padding: 0;
+      outline: none;
+      -moz-appearance: textfield;
+    }
+    input.param-input::-webkit-outer-spin-button,
+    input.param-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    input.param-input:focus { border-bottom-color: var(--accent); }
+
     .stop-hint { font-size: 0.62rem; color: #333; margin-top: 0.2rem; line-height: 1.5; }
 
     .stats { background: var(--surface2); border: 1px solid var(--border); border-radius: 3px; padding: 0.65rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; }
@@ -191,16 +208,16 @@
       <select id="modelSelect"><option value="">loading…</option></select>
     </div>
     <div class="param-row">
-      <div class="param-header"><span class="param-name">Temperature</span><span class="param-value" id="tempVal">0.8</span></div>
-      <input type="range" id="temperature" min="0" max="2" step="0.05" value="0.8" oninput="document.getElementById('tempVal').textContent=parseFloat(this.value).toFixed(2)">
+      <div class="param-header"><span class="param-name">Temperature</span><input type="number" class="param-input" id="tempVal" min="0" max="2" step="0.05" value="0.8" onchange="clampAndSync(this,'temperature',0,2,2)"></div>
+      <input type="range" id="temperature" min="0" max="2" step="0.05" value="0.8" oninput="document.getElementById('tempVal').value=parseFloat(this.value).toFixed(2)">
     </div>
     <div class="param-row">
-      <div class="param-header"><span class="param-name">Max tokens</span><span class="param-value" id="maxTokVal">256</span></div>
-      <input type="range" id="maxTokens" min="1" max="2048" step="16" value="256" oninput="document.getElementById('maxTokVal').textContent=this.value">
+      <div class="param-header"><span class="param-name">Max tokens</span><input type="number" class="param-input" id="maxTokVal" min="1" max="2048" step="1" value="256" onchange="clampAndSync(this,'maxTokens',1,2048,0)"></div>
+      <input type="range" id="maxTokens" min="1" max="2048" step="16" value="256" oninput="document.getElementById('maxTokVal').value=this.value">
     </div>
     <div class="param-row">
-      <div class="param-header"><span class="param-name">Context window</span><span class="param-value" id="ctxVal">2048</span></div>
-      <input type="range" id="contextWindow" min="64" max="8192" step="128" value="2048" oninput="document.getElementById('ctxVal').textContent=this.value">
+      <div class="param-header"><span class="param-name">Context window</span><input type="number" class="param-input" id="ctxVal" min="64" max="8192" step="1" value="2048" onchange="clampAndSync(this,'contextWindow',64,8192,0)"></div>
+      <input type="range" id="contextWindow" min="64" max="8192" step="128" value="2048" oninput="document.getElementById('ctxVal').value=this.value">
     </div>
     <div>
       <div class="section-label">Stop sequences</div>
@@ -253,6 +270,14 @@
   </div>
 
   <script>
+    function clampAndSync(numEl, rangeId, min, max, decimals) {
+      let v = parseFloat(numEl.value);
+      if (isNaN(v)) { numEl.value = document.getElementById(rangeId).value; return; }
+      v = Math.min(Math.max(v, min), max);
+      numEl.value = decimals > 0 ? v.toFixed(decimals) : Math.round(v);
+      document.getElementById(rangeId).value = v;
+    }
+
     let mode = 'completion';
     let chatHistory = [];
 
@@ -293,9 +318,9 @@
       const raw = document.getElementById('stopSeqs').value.trim();
       return {
         model:          document.getElementById('modelSelect').value,
-        temperature:    parseFloat(document.getElementById('temperature').value),
-        max_tokens:     parseInt(document.getElementById('maxTokens').value),
-        context_window: parseInt(document.getElementById('contextWindow').value),
+        temperature:    Math.min(Math.max(parseFloat(document.getElementById('tempVal').value) || 0.8, 0), 2),
+        max_tokens:     Math.min(Math.max(parseInt(document.getElementById('maxTokVal').value) || 256, 1), 2048),
+        context_window: Math.min(Math.max(parseInt(document.getElementById('ctxVal').value) || 2048, 64), 8192),
         stop:           raw ? raw.split(',').map(s => s.trim()).filter(Boolean) : null,
       };
     }

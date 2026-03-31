@@ -130,6 +130,25 @@
     .agent-card.a input[type="range"]::-webkit-slider-thumb { background: var(--a-color); }
     .agent-card.b input[type="range"]::-webkit-slider-thumb { background: var(--b-color); }
 
+    input.param-input {
+      width: 4.5rem;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid transparent;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      text-align: right;
+      padding: 0;
+      outline: none;
+      -moz-appearance: textfield;
+      color: inherit;
+    }
+    input.param-input::-webkit-outer-spin-button,
+    input.param-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .agent-card.a input.param-input { color: var(--a-color); }
+    .agent-card.b input.param-input { color: var(--b-color); }
+    input.param-input:focus { border-bottom-color: currentColor; }
+
     /* Seed message */
     .seed-area {
       border: 1px solid var(--border);
@@ -352,15 +371,16 @@
           </div>
           <div>
             <div class="section-label">System prompt</div>
-            <textarea id="systemA" rows="3" placeholder="You are a curious philosopher. Ask probing questions.">You are a curious philosopher. Ask probing questions and challenge assumptions. Keep your responses concise — 2 to 3 sentences maximum.</textarea>
+            <textarea id="systemA" rows="3" placeholder="You are a curious philosopher. Ask probing questions.">Você só fala em Portugues. Você é um cozineiro mal humorado e so gosta de falar sobre sobremesas. Você torce pelo Flamengo em todos os esporte, apesar de preferir o Basquete.</textarea>
           </div>
           <div class="param-row">
             <div class="param-header">
               <span class="param-name">Temperature</span>
-              <span class="param-val" id="tempAVal">0.8</span>
+              <input type="number" class="param-input" id="tempAVal" min="0" max="2" step="0.05" value="0.8"
+                onchange="clampAndSync(this,'tempA',0,2,2)">
             </div>
             <input type="range" id="tempA" min="0" max="2" step="0.05" value="0.8"
-              oninput="document.getElementById('tempAVal').textContent=parseFloat(this.value).toFixed(2)">
+              oninput="document.getElementById('tempAVal').value=parseFloat(this.value).toFixed(2)">
           </div>
         </div>
       </div>
@@ -376,15 +396,16 @@
           </div>
           <div>
             <div class="section-label">System prompt</div>
-            <textarea id="systemB" rows="3" placeholder="You are a pragmatic engineer. Stay grounded.">You are a pragmatic engineer. Stay grounded in facts and practical examples. Keep your responses concise — 2 to 3 sentences maximum.</textarea>
+            <textarea id="systemB" rows="3" placeholder="You are a pragmatic engineer. Stay grounded.">Você só responde em portugues. Você é um torcedor do Botafogo e sempre comenta sobre uma curiosidade sobre o Botafogo e sempre pergunta sobre o Botafogo.</textarea>
           </div>
           <div class="param-row">
             <div class="param-header">
               <span class="param-name">Temperature</span>
-              <span class="param-val" id="tempBVal">0.8</span>
+              <input type="number" class="param-input" id="tempBVal" min="0" max="2" step="0.05" value="0.8"
+                onchange="clampAndSync(this,'tempB',0,2,2)">
             </div>
             <input type="range" id="tempB" min="0" max="2" step="0.05" value="0.8"
-              oninput="document.getElementById('tempBVal').textContent=parseFloat(this.value).toFixed(2)">
+              oninput="document.getElementById('tempBVal').value=parseFloat(this.value).toFixed(2)">
           </div>
         </div>
       </div>
@@ -392,7 +413,7 @@
       <!-- Seed message -->
       <div class="seed-area">
         <div class="section-label">Seed message <span style="color:var(--muted);font-weight:300">(sent to Agent A to start)</span></div>
-        <textarea id="seedMsg" rows="3" placeholder="What is consciousness?">What is consciousness?</textarea>
+        <textarea id="seedMsg" rows="3" placeholder="What is consciousness?">Quem foi Isac Newton?</textarea>
       </div>
 
       <!-- Turn limit -->
@@ -409,10 +430,11 @@
       <div class="param-row">
         <div class="param-header">
           <span class="param-name">Max tokens / turn</span>
-          <span class="param-val" id="maxTokVal" style="color:var(--muted)">256</span>
+          <input type="number" class="param-input" id="maxTokVal" min="32" max="1024" step="1" value="256"
+            style="color:var(--muted)" onchange="clampAndSync(this,'maxTokens',32,1024,0)">
         </div>
         <input type="range" id="maxTokens" min="32" max="1024" step="32" value="256"
-          oninput="document.getElementById('maxTokVal').textContent=this.value">
+          oninput="document.getElementById('maxTokVal').value=this.value">
       </div>
 
       <!-- Controls -->
@@ -459,6 +481,14 @@
   </div>
 
   <script>
+    function clampAndSync(numEl, rangeId, min, max, decimals) {
+      let v = parseFloat(numEl.value);
+      if (isNaN(v)) { numEl.value = document.getElementById(rangeId).value; return; }
+      v = Math.min(Math.max(v, min), max);
+      numEl.value = decimals > 0 ? v.toFixed(decimals) : Math.round(v);
+      document.getElementById(rangeId).value = v;
+    }
+
     // ── State ──────────────────────────────────────────────────────────────
     let running = false;
     let shouldStop = false;
@@ -620,11 +650,11 @@
       const modelB    = document.getElementById('modelB').value;
       const systemA   = document.getElementById('systemA').value.trim();
       const systemB   = document.getElementById('systemB').value.trim();
-      const tempA     = parseFloat(document.getElementById('tempA').value);
-      const tempB     = parseFloat(document.getElementById('tempB').value);
+      const tempA     = Math.min(Math.max(parseFloat(document.getElementById('tempAVal').value) || 0.8, 0), 2);
+      const tempB     = Math.min(Math.max(parseFloat(document.getElementById('tempBVal').value) || 0.8, 0), 2);
       const seed      = document.getElementById('seedMsg').value.trim();
       const turnLimit = parseInt(document.getElementById('turnLimit').value);
-      const maxTokens = parseInt(document.getElementById('maxTokens').value);
+      const maxTokens = Math.min(Math.max(parseInt(document.getElementById('maxTokVal').value) || 256, 32), 1024);
 
       if (!modelA || !modelB) { alert('Select a model for both agents'); return; }
       if (!seed)              { alert('Add a seed message to start the conversation'); return; }
