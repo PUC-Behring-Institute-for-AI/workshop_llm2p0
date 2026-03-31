@@ -6,7 +6,6 @@ A local workshop server with two tools for hands-on LLM exploration.
 
 - Python 3.10+
 - [Ollama](https://ollama.com) installed and running
-- An Anthropic API key (for Tool B)
 
 ---
 
@@ -18,14 +17,7 @@ A local workshop server with two tools for hands-on LLM exploration.
 pip install -r requirements.txt
 ```
 
-### 2. Configure environment
-
-```bash
-cp .env.example .env
-# Edit .env and add your ANTHROPIC_API_KEY
-```
-
-### 3. Pull models into Ollama
+### 2. Pull models into Ollama
 
 ```bash
 # Base/completion models (the "honest machine")
@@ -40,13 +32,13 @@ ollama pull llama3.2:3b-instruct
 
 > **Workshop tip**: pull models *before* the event. Each is 1–4GB.
 
-### 4. Start Ollama
+### 3. Start Ollama
 
 ```bash
 ollama serve
 ```
 
-### 5. Start the workshop server
+### 4. Start the workshop server
 
 ```bash
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
@@ -68,7 +60,7 @@ ipconfig getifaddr en1   # ethernet
 |------|-----|---------|
 | Landing page | `/` | Participants choose their tool |
 | Raw Explorer | `/explorer` | Ollama — completion vs instruct, all parameters exposed |
-| Chatbot Explorer | `/chatbot` | Claude API — system prompt editing, presets, corruption demos |
+| Model Arena | `/arena` | Two Ollama models talking to each other — compare behaviors side by side |
 
 ---
 
@@ -93,11 +85,3 @@ Test before the session:
 - Connect a second device to the same network
 - Verify `http://<macbook-ip>:8000` is reachable from the second device
 
----
-
-## API key safety
-
-The `ANTHROPIC_API_KEY` in `.env` is never sent to the browser.
-All Claude API calls are proxied through the FastAPI backend.
-Participants only interact with `/api/claude/...` endpoints which forward
-requests server-side.

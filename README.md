@@ -1,18 +1,68 @@
 # LLM na Prática: Entendendo Prompts e Modelos com Ollama
 
-> Um curso hands-on para construir intuição real sobre como os Grandes Modelos de Linguagem (LLMs) funcionam — e por que os prompts importam tanto quanto o treinamento.
+> Um curso hands-on de 4 horas para construir intuição real sobre como os Grandes Modelos de Linguagem (LLMs) funcionam — e por que os prompts importam tanto quanto o treinamento.
 
 ---
 
-## Sobre o Curso
+## Para Participantes do Workshop
 
-Este repositório contém todo o código, notebooks e materiais do curso **"LLM na Prática"**, voltado para quem quer ir além de "só usar" os modelos e entender o que está acontecendo por baixo dos panos.
+### Material do curso
 
-Ao longo do curso, você vai experimentar diretamente como as escolhas de prompt afetam o comportamento de um modelo — e o que isso revela sobre como LLMs são treinados para conversa (chat fine-tuning, RLHF, instruction tuning). Tudo isso usando **Python** e a biblioteca **Ollama**, rodando modelos localmente na sua própria máquina.
+Todo o material de estudo está em [`material_aulas/workshop_apresen/`](material_aulas/workshop_apresen/).
 
-### O que você vai desenvolver ao concluir o curso
+Comece pelo **[Índice Geral](material_aulas/workshop_apresen/Índice.md)** para navegar pelas 12 seções da parte teórica com links diretos para cada slide.
 
-- Uma **consciência clara** sobre como LLMs processam e respondem a texto
-- Intuição prática sobre **quando o problema está no prompt** versus **quando está no modelo**
-- Capacidade de **comparar modelos** e entender por que respondem diferente ao mesmo input
-- Habilidade de escrever prompts mais eficazes para tarefas reais
+> Os arquivos `.md` são otimizados para [Obsidian](https://obsidian.md/), mas podem ser lidos em qualquer editor de texto ou diretamente no GitHub.
+
+### Demo interativo
+
+Durante a parte prática (2h), o instrutor serve uma aplicação web na rede local.
+Acesse pelo endereço que o instrutor informar em sala — geralmente `http://192.168.x.x:8000`.
+
+---
+
+## Para Instrutores
+
+### Estrutura do repositório
+
+```
+workshop_llm2p0/
+├── material_aulas/      # Conteúdo do curso (slides, links, prompts de demo)
+├── workshop_server/     # Servidor web para a parte prática
+├── Local_UI/            # GUI alternativa em Tkinter (sem browser)
+└── sandbox/             # Notebooks de experimentação com Ollama
+```
+
+### Setup rápido do servidor
+
+Ver instruções detalhadas em [`workshop_server/README.md`](workshop_server/README.md).
+
+```bash
+# 1. Instalar dependências
+pip install -r requirements.txt
+
+# 2. Iniciar o Ollama (em outro terminal)
+ollama serve
+
+# 3. Subir o servidor
+cd workshop_server
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+Participantes conectam via: `http://<seu-ip-local>:8000`
+
+### O que o workshop cobre
+
+- Como LLMs processam e geram texto (próximo token, temperatura, amostragem)
+- Diferença entre modelo base e modelo instruct (RLHF, instruction tuning)
+- Como prompts afetam o comportamento do modelo
+- Comparação entre modelos diferentes rodando lado a lado
+
+---
+
+## Sobre
+
+Curso desenvolvido por Emilio Vital Brazil.
+Construído com auxílio da API do Claude — uma demonstração prática do próprio conteúdo ensinado.
+
+Licença: [Apache 2.0](LICENSE)
