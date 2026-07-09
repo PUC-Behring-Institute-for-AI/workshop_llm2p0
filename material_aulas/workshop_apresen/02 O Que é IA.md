@@ -50,7 +50,110 @@ Quando você usa o ChatGPT, o Gemini ou o Claude, você está usando um **Modelo
 Cada camada da cebola explica algo diferente sobre o comportamento desses sistemas — e cada camada vai receber sua seção neste workshop.
 
 ---
+## Grandes modelos de linguagem provavelmente já são conhecidos, mas como a linguagem foi processada antes deles?
 
+Uma maneira de entender essas quatro áreas é observar como um mesmo problema foi resolvido ao longo da história do **Processamento de Linguagem Natural (PLN)**.
+
+Imagine que queremos construir um sistema capaz de analisar textos escritos por pessoas.
+
+Cada etapa da evolução da IA resolveu esse problema de uma maneira diferente.
+
+### Representação baseada em regras
+
+Os primeiros sistemas utilizavam **regras escritas manualmente** por especialistas.
+
+Por exemplo, um programa poderia identificar perguntas verificando se uma frase termina com um ponto de interrogação (`?`) ou se começa com palavras como:
+
+- quem
+- quando
+- onde
+- por que
+
+Esses sistemas funcionam bem para casos simples, mas tornam-se difíceis de manter à medida que o número de regras cresce.
+
+Exemplos históricos:
+
+- ELIZA
+- Ferramentas da biblioteca NLTK baseadas em regras e expressões regulares
+
+> 💡 O computador não aprende. Ele apenas executa regras escritas por programadores.
+
+Exemplo:
+RegexpTokenizer | Tokenizador baseado em expressões regulares (regras escritas pelo programador). | https://www.nltk.org/api/nltk.tokenize.regexp.html |
+
+---
+### Aprendizado de Máquina (Machine Learning)
+
+Em vez de escrever todas as regras manualmente, podemos mostrar milhares de exemplos ao computador.
+
+Por exemplo, podemos fornecer milhares de mensagens marcadas como:
+
+```
+"Gostei muito do filme."
+→ Positivo
+
+"O filme foi horrível."
+→ Negativo
+```
+
+Após observar muitos exemplos, um algoritmo consegue aprender padrões que distinguem textos positivos de negativos.
+
+Algoritmos clássicos incluem:
+
+- Naive Bayes
+- Regressão Logística
+- Support Vector Machines (SVM)
+- Árvores de decisão
+
+Esses métodos dominaram o PLN durante muitos anos.
+
+> 💡 Agora o computador aprende padrões a partir dos dados, mas ainda depende de características (features) cuidadosamente projetadas pelos pesquisadores.
+
+Exemplo:
+Sentiment (NLTK) | Análise de sentimento que utiliza frequência de palavras para treinar um algoritmo | https://www.nltk.org/howto/sentiment.html |
+
+---
+### Aprendizado Profundo (Deep Learning)
+
+Com redes neurais profundas, o próprio modelo aprende quais características são importantes.
+
+Já não é necessário informar manualmente quais palavras são relevantes.
+
+Modelos neurais conseguem aprender representações mais sofisticadas da linguagem.
+
+O **spaCy**, por exemplo, é uma biblioteca de PLN que utiliza representações numéricas de estruturas linguísticas.
+
+Em vez de escrever regras para identificar palavras relevantes para uma tarefa, a biblioteca treina uma rede neural com exemplos anotados baseados em representações profundas. Durante o treinamento, ela aprende automaticamente quais padrões da linguagem são úteis para cada tarefa.
+
+Por exemplo, ao analisar muitas frases, o modelo aprende que palavras iniciadas por letra maiúscula frequentemente representam nomes próprios, mas também utiliza o contexto para distinguir casos como:
+
+> **Apple** released a new phone.
+
+e
+
+> I ate an **apple**.
+
+Assim, o modelo não depende apenas de regras fixas ou algoritmos baseados em frequência: ele aprende representações cada vez mais sofisticadas da linguagem à medida que observa mais exemplos.
+
+> 💡 Essa é uma das principais diferenças entre o Aprendizado Profundo e os métodos anteriores: a própria rede neural aprende quais informações são mais úteis durante o treinamento.
+
+Hoje, bibliotecas como **spaCy** utilizam redes neurais para tarefas como:
+
+- identificação de entidades
+- análise sintática
+- classificação de textos
+
+Exemplo:
+spaCy displaCy | Visualizador interativo de análise sintática e reconhecimento de entidades. | https://explosion.ai/demos/displacy |
+
+---
+## Comparando as quatro abordagens
+
+| Regras                                   | Machine Learning                     | Deep Learning                                    | Modelos Fundacionais                                         |
+| ---------------------------------------- | ------------------------------------ | ------------------------------------------------ | ------------------------------------------------------------ |
+| Regras escritas por humanos              | Aprende padrões a partir de exemplos | Aprende automaticamente representações complexas | Aprende uma representação geral da linguagem em larga escala |
+| Pouca flexibilidade                      | Boa para tarefas específicas         | Excelente desempenho em tarefas complexas        | Um único modelo resolve diversas tarefas                     |
+| Ex.: ELIZA, regras, expressões regulares | Ex.: Regressão, SVM                  | Ex.: spaCy, LSTM, Transformers                   | Ex.: ChatGPT, Gemini, Claude                                 |
 [[Índice]] | [[01 Apresentação|← Anterior]] | [[03 Machine Learning|Próximo →]]
 
 [[#02 O Que é IA|↑ Topo]]

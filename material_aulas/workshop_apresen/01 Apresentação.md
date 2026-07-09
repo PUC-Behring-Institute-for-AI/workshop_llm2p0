@@ -45,16 +45,6 @@ Usar uma ferramenta de IA para preparar um workshop *sobre* ferramentas de IA cr
 
 > *A IA foi o assistente. O workshop é nosso.*
 
----
-
-## Quem sou eu?
-### Emilio Vital Brazil
-![[figs/talker.png|300]]
-
----
-
-## Por que estou aqui hoje?
-
 
 ---
 
@@ -135,7 +125,84 @@ Ao longo deste workshop, vamos tentar usar esses termos com precisão — e semp
 > 💡 *A IA não aprendeu nada. Ela otimizou. Não treinou nada. Foi calculado parâmetros a partir de dados. Não sente nada. Ela calcula. E entender essa diferença é exatamente o que este workshop propõe.*
 
 ---
+## EXEMPLO — Como crianças aprendem uma língua?
 
+Uma criança não aprende uma língua apenas repetindo frases que ouviu.
+
+Na verdade, ela frequentemente produz frases que **ninguém nunca lhe ensinou**.
+
+Por exemplo, é comum ouvir crianças dizerem:
+
+> "Eu fazi."
+
+em vez de
+
+> "Eu fiz."
+
+Ou ainda:
+
+> "Eu sabi."
+
+em vez de
+
+> "Eu soube."
+
+Essas formas estão erradas para um adulto, mas revelam algo extremamente importante:
+
+A criança **não está apenas imitando**.
+
+Ela percebeu um padrão presente na língua.
+
+Por exemplo:
+
+```
+comer  → comi
+
+abrir  → abri
+
+partir → parti
+
+fazer  → fazi
+```
+
+Ela criou uma hipótese sobre a língua:
+
+> "Para formar o passado na primeira pessoa, basta substituir a terminação do verbo."
+
+Essa hipótese funciona para muitos verbos, mas não para todos. Como **fazer** é um verbo irregular, a criança produz uma forma inexistente na língua adulta.
+
+Curiosamente, esse tipo de erro é considerado um sinal positivo do desenvolvimento linguístico, pois mostra que a criança está **generalizando regras**, e não apenas repetindo frases que ouviu. Ao longo do tempo, com novas experiências linguísticas, ela revisa suas hipóteses até chegar às formas utilizadas pelos adultos.[1]
+
+---
+
+## E uma IA?
+
+Modelos de linguagem também identificam padrões em grandes quantidades de texto.
+
+Mas existe uma diferença importante.
+
+Uma criança pode produzir espontaneamente uma forma que nunca ouviu porque está construindo hipóteses sobre como a língua funciona.
+
+Já um LLM não formula hipóteses explícitas sobre regras gramaticais.
+
+Ele ajusta bilhões de parâmetros para reproduzir regularidades estatísticas observadas durante o treinamento.
+
+Se uma determinada forma nunca apareceu nos dados, ou apareceu muito pouco, o modelo simplesmente terá pouca evidência para produzi-la.
+
+Ele não "descobre" novas regras da mesma maneira que uma criança.
+
+Em outras palavras:
+
+> Uma criança cria hipóteses sobre a gramática e aprende gradualmente suas exceções.
+
+> Um modelo estatístico aprende probabilidades e tenta reproduzir os padrões mais prováveis.
+
+Essa diferença ajuda a entender por que devemos tomar cuidado ao usar palavras como **"aprender"** para descrever sistemas de IA.
+
+
+[^1]: **KENEDY, Eduardo. _Curso básico de linguística gerativa_. São Paulo: Editora Contexto, 2024.**
+
+---
 ## Antes de Começar — Sua Vez de Falar
 
 Antes de mergulharmos na teoria, abrir espaço para ouvir os participantes. Sem resposta certa ou errada — o objetivo é calibrar expectativas e criar um ponto de partida honesto para as próximas quatro horas.
