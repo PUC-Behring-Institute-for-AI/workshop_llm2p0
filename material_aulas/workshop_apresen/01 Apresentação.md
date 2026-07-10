@@ -1,4 +1,4 @@
-[[Índice]] | [[02 O Que é IA|Próximo →]]
+[[Índice]] | [[02.1 O Que é IA|Próximo →]]
 
 # 01 Apresentação
 
@@ -14,12 +14,12 @@
 
 ## O que esperar deste workshop
 
-Este é um workshop de **4 horas** dividido em duas partes:
+Este é um workshop de **8 horas** dividido em duas partes:
 
 | Parte                   | Duração | O que vamos fazer                                  |
 | ----------------------- | ------- | -------------------------------------------------- |
-| 🧠 **Teoria**           | 2h      | Entender como LLMs funcionam — de dentro para fora |
-| 🛠️ **Demo interativo** | 2h      | Colocar a mão na massa e experimentar ao vivo      |
+| 🧠 **Teoria**           | 4h      | Entender como LLMs funcionam — de dentro para fora |
+| 🛠️ **Demo interativo** | 4h      | Colocar a mão na massa e experimentar ao vivo      |
 
 A parte teórica não pressupõe conhecimento técnico prévio. Vamos construir o entendimento camada por camada — de *"o que é IA"* até *"por que o modelo responde de forma diferente dependendo de como você pergunta"*.
 
@@ -236,6 +236,6 @@ Enquanto as apresentações acontecem, os participantes podem abrir um dos chatb
 
 ---
 
-[[Índice]] | [[02 O Que é IA|Próximo →]]
+[[Índice]] | [[02.1 O Que é IA|Próximo →]]
 
 [[#01 Apresentação|↑ Topo]]
