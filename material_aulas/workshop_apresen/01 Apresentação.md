@@ -221,16 +221,16 @@ Antes de mergulharmos na teoria, abrir espaço para ouvir os participantes. Sem 
 
 Enquanto as apresentações acontecem, os participantes podem abrir um dos chatbots abaixo e começar a explorar. Todos têm acesso gratuito — basta ter uma conta ou criar uma na hora.
 
-| Chatbot | Empresa | Link |
-| ------- | ------- | ---- |
-| ChatGPT | OpenAI | [chatgpt.com](https://chatgpt.com) |
-| Gemini | Google | [gemini.google.com](https://gemini.google.com) |
-| Claude | Anthropic | [claude.ai](https://claude.ai) |
-| Grok | xAI | [grok.com](https://grok.com) |
-| Copilot | Microsoft | [copilot.microsoft.com](https://copilot.microsoft.com) |
-| Le Chat | Mistral | [chat.mistral.ai](https://chat.mistral.ai) |
-| DeepSeek | DeepSeek | [chat.deepseek.com](https://chat.deepseek.com) |
-| Perplexity | Perplexity AI | [perplexity.ai](https://www.perplexity.ai) |
+| Chatbot    | Empresa       | Link                                                   |
+| ---------- | ------------- | ------------------------------------------------------ |
+| ChatGPT    | OpenAI        | [chatgpt.com](https://chatgpt.com)                     |
+| Gemini     | Google        | [gemini.google.com](https://gemini.google.com)         |
+| Claude     | Anthropic     | [claude.ai](https://claude.ai)                         |
+| Grok       | xAI           | [grok.com](https://grok.com)                           |
+| Copilot    | Microsoft     | [copilot.microsoft.com](https://copilot.microsoft.com) |
+| Le Chat    | Mistral       | [chat.mistral.ai](https://chat.mistral.ai)             |
+| DeepSeek   | DeepSeek      | [chat.deepseek.com](https://chat.deepseek.com)         |
+| Perplexity | Perplexity AI | [perplexity.ai](https://www.perplexity.ai)             |
 
 > 💡 **Sugestão de primeiro teste:** Faça a mesma pergunta em dois chatbots diferentes e compare as respostas. Isso por si só já revela muito sobre como esses sistemas funcionam — e sobre o que eles *não* são.
 
