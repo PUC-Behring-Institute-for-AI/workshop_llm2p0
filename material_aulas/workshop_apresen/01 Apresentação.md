@@ -18,8 +18,8 @@ Este é um workshop de **4 horas** dividido em duas partes:
 
 | Parte                   | Duração | O que vamos fazer                                  |
 | ----------------------- | ------- | -------------------------------------------------- |
-| 🧠 **Teoria**           | 2h      | Entender como LLMs funcionam — de dentro para fora |
-| 🛠️ **Demo interativo** | 2h      | Colocar a mão na massa e experimentar ao vivo      |
+| 🧠 **Teoria**           | 2h   | Entender como LLMs funcionam — de dentro para fora |
+| 🛠️ **Demo interativo** | 2h   | Colocar a mão na massa e experimentar ao vivo      |
 
 A parte teórica não pressupõe conhecimento técnico prévio. Vamos construir o entendimento camada por camada — de *"o que é IA"* até *"por que o modelo responde de forma diferente dependendo de como você pergunta"*.
 
