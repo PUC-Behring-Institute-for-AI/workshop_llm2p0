@@ -7,6 +7,7 @@
 [[#Quem sou eu?]]
 [[#Por que estou aqui hoje?]]
 [[#Vocabulário — As Palavras que a IA Tomou Emprestado]]
+[[#O que é um computador?]]
 [[#Antes de Começar — Sua Vez de Falar]]
 [[#Quebra Gelo — Experimente Agora]]
 
@@ -44,6 +45,24 @@ Isso não é uma confissão — é um ponto didático intencional.
 Usar uma ferramenta de IA para preparar um workshop *sobre* ferramentas de IA cria uma oportunidade única: **você está vendo o produto enquanto aprende sobre o processo**. Ao longo da apresentação, vou apontar momentos em que o comportamento do Claude durante a preparação ilustra exatamente o que estamos discutindo — seus acertos, seus limites, e as decisões que precisaram de julgamento humano.
 
 > *A IA foi o assistente. O workshop é nosso.*
+
+---
+
+## O que é um computador?
+
+Antes de falar de Inteligência Artificial, vale relembrar algo básico — e fácil de esquecer no meio de tanto termo sofisticado: **um computador é, no fundo, uma máquina que calcula 0 e 1.**
+
+Todo processador, por mais moderno que seja, opera sobre **bits** — dígitos binários que só podem valer `0` ou `1`. Fisicamente, isso é implementado como um transistor ligado ou desligado, uma tensão alta ou baixa, um pulso presente ou ausente. Não existe "meio termo": é sempre uma escolha entre dois estados.
+
+- 🔢 **Números** viram sequências de 0s e 1s (binário).
+- 🔤 **Texto** vira números, que viram 0s e 1s (codificação, como UTF-8).
+- 🖼️ **Imagens, áudio e vídeo** também viram números — e, no fim, 0s e 1s.
+
+Um computador não "entende" letras, cores ou sons. Ele manipula bits em altíssima velocidade, seguindo instruções também escritas em 0 e 1, e o resultado dessa manipulação é reconstruído em algo que faz sentido para nós — uma imagem na tela, um som no alto-falante, uma frase de resposta.
+
+> 💡 *Tudo que um computador "faz" — de uma planilha a um modelo de linguagem gerando texto — é, no nível mais fundamental, uma quantidade absurda de operações com 0 e 1. Isso vai importar quando falarmos sobre o que significa uma IA "pensar" ou "entender".*
+
+Atividade: https://www.advanced-ict.info/interactive/binary.html
 
 
 ---
