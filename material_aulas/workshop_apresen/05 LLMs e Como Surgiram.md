@@ -59,6 +59,101 @@ Três consequências imediatas:
 **Transferência de escala** — a arquitetura cresce de forma previsível: mais parâmetros, mais dados, melhor desempenho. Isso abriu caminho para a corrida de escala dos anos seguintes.
 
 ---
+## Na prática, por que atenção foi importante?
+
+Na linguagem humana, muitas interpretações dependem de palavras que estão bastante distantes umas das outras. 
+
+Por exemplo:
+
+> Qual livro a Maria disse que João comprou ontem?
+
+Para responder à pergunta, precisamos perceber que:
+
+> **qual livro**
+
+está relacionado, como complemento, ao verbo
+
+> **comprou**
+
+mesmo havendo várias palavras entre eles.
+
+Nós fazemos isso naturalmente durante a leitura.
+
+Os Transformers foram projetados justamente para tentarem estabelecer esse tipo de relação entre palavras distantes com mais eficiência.
+
+**E ambiguidades?**
+
+Considere a frase:
+
+> A menina carregou o grande livro na mochila mesmo sendo pequena.
+
+Quem era pequena?
+
+- a menina?
+- a mochila?
+
+Não existe nenhuma regra simples que responda essa pergunta.
+
+O modelo precisa considerar o restante da frase para decidir qual interpretação parece mais provável.
+
+É justamente esse tipo de problema que o mecanismo de atenção ajuda a resolver.
+
+---
+## Como funciona?
+
+Ao processar a palavra
+
+> pequena
+
+o modelo pode atribuir diferentes níveis de atenção às demais palavras da frase.
+
+Por exemplo:
+
+```
+A menina carregou o livro na mochila mesmo sendo pequena.
+
+        ↑
+     menina
+
+                    ↑
+                 mochila
+
+             ↑
+           livro
+```
+
+Essas relações recebem pesos diferentes durante o processamento.
+
+Palavras mais relevantes exercem maior influência na representação da palavra atual.
+
+---
+## Atenção não significa compreensão
+
+Mesmo utilizando atenção, os modelos ainda cometem erros.
+
+Algumas ambiguidades continuam difíceis até mesmo para seres humanos.
+
+Além disso, muitas interpretações dependem de informações que não aparecem no texto.
+
+Por exemplo:
+
+> Maria colocou o grande livro na mochila porque ela era pequena.
+
+Um modelo de linguagem normalmente escolhe a interpretação que parece **mais provável**, considerando os bilhões de exemplos observados durante o treinamento.
+
+Já um ser humano pode utilizar diversas outras fontes de informação, como:
+
+- conhecimento de mundo;
+- experiências anteriores;
+- contexto da conversa;
+- intenções do falante;
+- tom do falante.
+
+Em outras palavras, um LLM resolve muitos casos de ambiguidade porque aprendeu padrões estatísticos extremamente complexos da linguagem. Já os seres humanos combinam esses padrões com processos cognitivos mais amplos relacionados à linguagem, percepção, memória, raciocínio, dentre outros.
+
+> 💡 A atenção permite que o modelo relacione palavras distantes e utilize o contexto global da sentença. Isso melhora significativamente a interpretação da linguagem, mas não elimina todas as ambiguidades nem substitui o conhecimento de mundo humano.
+
+---
 
 ## O primeiro uso — tradução automática
 

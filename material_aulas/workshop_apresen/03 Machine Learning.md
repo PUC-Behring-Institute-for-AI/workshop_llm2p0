@@ -1,4 +1,4 @@
-[[Índice]] | [[02 O Que é IA|← Anterior]] | [[04 Modelos Fundacionais|Próximo →]]
+[[Índice]] | [[02.1 O Que é IA|← Anterior]] | [[04 Modelos Fundacionais|Próximo →]]
 
 # 03 Machine Learning
 
@@ -96,6 +96,6 @@ O gradiente é como uma bússola que aponta na direção do erro crescente. Move
 
 ---
 
-[[Índice]] | [[02 O Que é IA|← Anterior]] | [[04 Modelos Fundacionais|Próximo →]]
+[[Índice]] | [[02.1 O Que é IA|← Anterior]] | [[04 Modelos Fundacionais|Próximo →]]
 
 [[#03 Machine Learning|↑ Topo]]

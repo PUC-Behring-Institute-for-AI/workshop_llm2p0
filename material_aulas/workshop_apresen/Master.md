@@ -1,0 +1,5 @@
+![[01 Apresentação]]![[02.1 O Que é IA]]![[02.2 Appendix O que é Linguagem Natural]]
+  ![[03 Machine Learning]]
+![[04 Modelos Fundacionais]]![[05 LLMs e Como Surgiram]]
+![[06 Como os LLMs Aprendem]]
+![[07 Como o Modelo Decide]]![[08 Chatbots]]![[09 System Prompt e Guard Rails]]![[10 Influência dos Prompts]]![[11 Antropomorfização]]![[12 Transição para o Demo]]![[Demo Prompts — Amigo Botafoguense]]![[Recursos e Demos]]![[Índice]]
