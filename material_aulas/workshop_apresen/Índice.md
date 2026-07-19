@@ -1,29 +1,30 @@
 # Workshop LLM — Índice Geral
 
-> **Duração total:** 4 horas — 2h teoria · 2h demo interativo
+> **Duração total:** 8 horas — 4h teoria · 4h demo interativo
 
 ---
 
 ## Parte Teórica (2h)
 
-| #   | Seção                                                     | Arquivo                            |
-| --- | --------------------------------------------------------- | ---------------------------------- |
-| 01  | Apresentação                                              | [[01 Apresentação]]                |
-| 02  | O Que é IA                                                | [[02 O Que é IA]]                  |
-| 03  | Machine Learning                                          | [[03 Machine Learning]]            |
-| 04  | Modelos Fundacionais                                      | [[04 Modelos Fundacionais]]        |
-| 05  | LLMs — O que são e como surgiram                          | [[05 LLMs e Como Surgiram]]        |
-| 06  | Como os LLMs Aprendem — auto-supervisão, tokens e geração | [[06 Como os LLMs Aprendem]]       |
-| 07  | Como o Modelo "Decide" — Temperatura e Alucinações        | [[07 Como o Modelo Decide]]        |
-| 08  | Chatbots — Fine-tuning e RLHF                             | [[08 Chatbots]]                    |
-| 09  | System Prompt e Guard Rails                               | [[09 System Prompt e Guard Rails]] |
-| 10  | A Influência dos Prompts                                  | [[10 Influência dos Prompts]]      |
-| 11  | Antropomorfização                                         | [[11 Antropomorfização]]           |
-| 12  | Transição para o Demo                                     | [[12 Transição para o Demo]]       |
+| #    | Seção                                                     | Arquivo                                     |
+| ---- | --------------------------------------------------------- | ------------------------------------------- |
+| 01   | Apresentação                                              | [[01 Apresentação]]                         |
+| 02.1 | O Que é IA                                                | [[02.1 O Que é IA]]                         |
+| 02.2 | O que é Linguagem Natural                                 | [[02.2 Appendix O que é Linguagem Natural]] |
+| 03   | Machine Learning                                          | [[03 Machine Learning]]                     |
+| 04   | Modelos Fundacionais                                      | [[04 Modelos Fundacionais]]                 |
+| 05   | LLMs — O que são e como surgiram                          | [[05 LLMs e Como Surgiram]]                 |
+| 06   | Como os LLMs Aprendem — auto-supervisão, tokens e geração | [[06 Como os LLMs Aprendem]]                |
+| 07   | Como o Modelo "Decide" — Temperatura e Alucinações        | [[07 Como o Modelo Decide]]                 |
+| 08   | Chatbots — Fine-tuning e RLHF                             | [[08 Chatbots]]                             |
+| 09   | System Prompt e Guard Rails                               | [[09 System Prompt e Guard Rails]]          |
+| 10   | A Influência dos Prompts                                  | [[10 Influência dos Prompts]]               |
+| 11   | Antropomorfização                                         | [[11 Antropomorfização]]                    |
+| 12   | Transição para o Demo                                     | [[12 Transição para o Demo]]                |
 
 ---
 
-## Parte Prática (2h)
+## Parte Prática (4h)
 
 | #   | Seção                        | Arquivo                           |
 | --- | ---------------------------- | --------------------------------- |

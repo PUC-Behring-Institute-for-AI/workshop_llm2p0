@@ -117,7 +117,263 @@ Algumas consequências não óbvias da tokenização:
 > *Pergunta para a audiência: quantos tokens vocês acham que tem a frase "Inteligência Artificial Generativa"?*
 
 ---
+# Tokens não são palavras e nem necessariamente possuem significado linguístico
 
+## O que é uma palavra?
+
+Para nós, falantes de português, a palavra
+
+> infelizmente
+
+é uma palavra com significado relativamente claro, composto por uma raiz *feliz* e morfemas derivacionais.
+
+in + feliz + mente
+
+Mas um sistema computacional pode representá-la de várias maneiras e não necessariamente precisa se adequar aos morfemas reais da língua.
+
+---
+
+## Primeira possibilidade
+
+O tokenizador pode armazenar:
+
+```
+
+infelizmente
+
+```
+
+como um único token.
+
+Nesse caso, basta um símbolo para representar toda a palavra.
+
+---
+
+## Segunda possibilidade
+
+Ele também pode quebrá-la em partes:
+
+```
+
+infeliz
+
+mente
+
+```
+
+Agora temos dois tokens.
+
+Curiosamente, essas partes fazem sentido para nós:
+
+- infeliz = contrário de feliz, visto que possui os morfemas in (contrário) + feliz (radical)
+- mente = transforma a palavra em advérbio de modo
+
+---
+## Terceira possibilidade
+
+Dependendo do tokenizador, a divisão pode ser completamente diferente:
+
+```
+
+inf
+
+eliz
+
+mente
+
+```
+
+
+Não existe uma única resposta correta.
+
+Cada modelo utiliza seu próprio vocabulário de tokens. Exemplo:
+
+![[Pasted image 20260710151251.png]]
+
+---
+## Pergunta
+
+Isso significa que o computador conhece:
+
+- prefixos?
+- sufixos?
+- morfemas?
+
+A resposta é:
+
+# Não exatamente.
+
+---
+## Como o tokenizador decide?
+
+O objetivo do tokenizador **não é fazer análise linguística**.
+
+Ele procura divisões que sejam eficientes para representar grandes quantidades de texto, muitas vezes com base em frequência.
+
+Isso significa que uma divisão útil para o modelo pode não coincidir com aquilo que aprendemos nas aulas de Português.
+
+Portanto, um token pode coincidir com um morfema da língua, mas apenas porque a distribuição de sequência de caracteres analisados pelo sistema computacional culminou naquele padrão sequencial.
+
+---
+## Comparando Linguística e IA
+
+| Linguística | Tokenizador |
+|-------------|-------------|
+| procura estrutura da língua | procura eficiência estatística |
+| morfemas possuem significado | tokens não precisam possuir significado |
+| regras linguísticas | frequência em grandes corpora |
+
+---
+## Um exemplo
+
+Observe:
+
+```
+
+cachorros
+
+```
+
+Na Linguística podemos analisar:
+
+```
+
+cachorr
+
+o
+
+s
+
+```
+
+(radical + vogal temática + plural)
+
+Já um tokenizador pode produzir:
+
+```
+
+cachorros
+
+```
+
+ou
+
+```
+
+cachorro
+
+s
+
+```
+
+ou
+
+```
+
+cach
+
+orros
+
+```
+
+Todas essas divisões podem funcionar.
+
+---
+## Então por que usar tokens?
+
+Porque eles permitem representar praticamente qualquer texto.
+
+Mesmo palavras muito raras podem ser formadas pela combinação de tokens menores.
+
+Isso evita que o modelo precise memorizar milhões de palavras completas.
+
+Portanto,
+Quando dizemos que um LLM prevê o "próximo token", isso **NÃO** significa que ele prevê a próxima palavra.
+**Na prática, ele prevê pedaços de texto, conjuntos de caracteres.**
+
+---
+# A questão da eficiência
+
+E por que conjuntos, e não caracteres únicos?
+
+A resposta está no custo computacional.
+
+### Uma palavra por símbolo?
+
+Imagine que o modelo tivesse um símbolo diferente para cada palavra da língua portuguesa.
+
+Teríamos símbolos distintos para:
+
+- gato
+- gata
+- gatos
+- gatas
+- gatinho
+- gatinha
+- gatões
+- gatinhas
+
+E o mesmo aconteceria para milhões de outras palavras.
+
+Além disso, sempre surgem palavras novas:
+
+- nomes próprios;
+- gírias;
+- abreviações;
+- neologismos;
+- palavras de outros idiomas.
+
+O vocabulário precisaria crescer continuamente, tornando o modelo muito maior e mais caro de treinar.
+### Um caractere por símbolo?
+
+Podemos pensar no extremo oposto.
+
+E se cada símbolo fosse apenas um caractere?
+
+```
+g
+a
+t
+o
+```
+
+Agora qualquer palavra poderia ser construída.
+
+Mas surge outro problema.
+
+Uma palavra simples como
+
+```
+computador
+```
+
+seria dividida em:
+
+```
+c
+o
+m
+p
+u
+t
+a
+d
+o
+r
+```
+
+O modelo precisaria prever um caractere de cada vez.
+
+As sequências ficariam muito maiores, tornando o treinamento e a geração de texto muito mais lentos.
+
+Além disso, seria muito mais difícil aprender padrões linguísticos, já que palavras e partes de palavras seriam "quebradas" em unidades muito pequenas.
+### Tokens: um meio-termo
+
+Os modelos modernos, de modo geral, optam por um equilíbrio entre ambas as perspectivas.
+
+> 💡 **Resumo:** Os tokens representam um equilíbrio entre flexibilidade e eficiência. Palavras inteiras exigiriam um vocabulário enorme; caracteres individuais produziriam sequências muito longas. Os tokens ficam exatamente no meio desses dois extremos, permitindo que os modelos representem a linguagem de forma eficiente sem perder capacidade de generalização.
+
+---
 ## Completando palavras — geração token a token
 
 Quando um LLM gera texto, ele não produz a resposta inteira de uma vez. Ele a constrói **um token por vez**, de forma autorregressiva:
@@ -140,6 +396,121 @@ Esse mecanismo também explica por que **o prompt importa tanto**: os tokens do 
 
 
 ---
+# Como computadores representam palavras?
+
+---
+## Até agora...
+
+Aprendemos que modelos transformam textos em tokens.
+
+Mas surge uma nova pergunta:
+
+> Como representar o significado desses tokens?
+
+Isso é feito através de valores numéricos atribuídos aos tokens: os **embeddings**
+
+---
+# Palavras diferentes...
+
+Observe estas palavras:
+
+• cachorro
+
+• dog
+
+• perro
+
+• 犬
+
+São escritas de maneiras completamente diferentes.
+
+Mesmo assim, todas se referem aproximadamente ao mesmo conceito.
+
+Como um sistema computacional percebe essa relação?
+
+---
+# A ideia principal
+
+Os modelos de linguagem transformam cada token em um conjunto de números.
+
+Esses conjuntos de números são chamados de **embeddings**.
+
+Podemos imaginar um embedding como uma coordenada em um enorme mapa.
+
+Palavras usadas em contextos parecidos acabam ficando próximas nesse mapa.
+
+---
+# Um mapa imaginário
+
+Imagine um mapa onde palavras semelhantes aparecem próximas.
+
+```
+                gato
+
+         cachorro
+
+hamster
+
+
+        leão
+```
+
+Animais aparecem agrupados.
+
+Já palavras relacionadas à realeza aparecem em outro lugar.
+
+```
+            rei
+
+        rainha
+
+ príncipe
+
+ princesa
+```
+
+Essas posições não foram definidas por especialistas.
+
+Elas foram aprendidas automaticamente durante o treinamento.
+
+Veja esse exemplo:
+
+![[Pasted image 20260710160157.png]]
+
+---
+# O computador conhece significados?
+
+Não exatamente.
+
+O computador aprende que certas palavras aparecem em contextos semelhantes.
+
+Por exemplo:
+
+"O cachorro latiu."
+
+"O gato miou."
+
+Como essas palavras aparecem em contextos linguísticos parecidos, seus embeddings tendem a ficar próximos.
+
+> "Palavras usadas em contextos semelhantes tendem a possuir significados semelhantes."
+
+---
+# Atenção!
+
+Embeddings NÃO são dicionários.
+
+Eles não armazenam definições.
+
+Também não representam "o verdadeiro significado" das palavras.
+
+Eles representam padrões aprendidos a partir do uso da linguagem.
+
+---
+# Para pensar
+
+Para computadores palavras podem ser representadas como pontos em um espaço derivados de contextos semelhantes,
+mas como seres humanos aprendem os significados de palavras?
+
 
 [[Índice]] | [[05 LLMs e Como Surgiram|← Anterior]] | [[07 Como o Modelo Decide|Próximo →]]
 

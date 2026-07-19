@@ -1,10 +1,62 @@
+
 # Recursos e Demos
+
+| Seção | Recurso | Finalidade |
+|---|---|---|
+| 03 | Google Teachable Machine | Treinamento de modelos |
+| 05 | Runcell Token Counter | Contagem de tokens |
+| 05 | HF Tokenizer Playground | Comparar tokenização |
+| Linguagem | displaCy | Dependências sintáticas (DL) |
+| Linguagem | displaCy NER | Entidades nomeadas (DL) |
+| Linguagem | spaCy Matcher | Regras/ML |
+| Linguagem | Prodigy NER Demo | Anotação manual |
+| Linguagem | perguntas_ambiguidade.ipynb | Ambiguidade linguística |
+| Linguagem | plot_embeddings.ipynb | Visualização de embeddings |
+| 06 | Next Token Prediction | Próximo token |
+| 09 | Leaked System Prompts | System prompts |
+| 09 | guardrail_main.py| System prompts & Security |
+| 10 | Prompting Guide / ChatHub | Engenharia de prompts |
 
 [[Índice]]
 
 Links e ferramentas para uso durante a apresentação teórica, em ordem de aparição.
 
+## Recursos adicionais para Linguagem e PLN
+
+### displaCy (Dependências Sintáticas)
+https://demos.explosion.ai/displacy
+
+Visualização das árvores de dependência produzidas pelo spaCy. Excelente para mostrar como modelos modernos analisam relações sintáticas.
+
+### displaCy NER
+https://demos.explosion.ai/displacy-ent
+
+Visualização de reconhecimento de entidades nomeadas.
+
+### spaCy Matcher
+https://demos.explosion.ai/matcher
+
+Demonstra regras e padrões para extração de informações, contrastando abordagens simbólicas e aprendizado de máquina.
+
+### Prodigy NER Demo
+https://demo.prodi.gy/?=null&view_id=ner_manual
+
+Demonstração de anotação manual de entidades para treinamento supervisionado.
+
+### Notebook: perguntas_ambiguidade.ipynb
+
+Arquivo localizado em `codigos_uteis/perguntas_ambiguidade.ipynb`. Contém exemplos clássicos de ambiguidades para demonstrar interpretação linguística.
+
+### Notebook: plot_embeddings.ipynb
+
+Arquivo localizado em `codigos_uteis/plot_embeddings.ipynb`. Gera visualizações de embeddings para ilustrar representações vetoriais de palavras.
+
+### Python: guardrail_main.py
+
+Arquivo localizado em `codigos_uteis/guardrail_main.py`. Agrega configurações de modelos, prompts de segurança e agentes direcionados a atuarem como seguranças de informação dos prompts enviados e recebidos.
+
 ---
+
 
 ## 03. Treinando um Modelo
 
