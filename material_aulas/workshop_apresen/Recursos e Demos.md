@@ -67,7 +67,7 @@ Ferramenta do Google que permite treinar um modelo de classificação de imagens
 
 ---
 
-## 05. Tokenização
+## 06. Como os LLMs Aprendem — auto-supervisão, tokens e geração
 
 ### Runcell Token Counter
 [https://www.runcell.dev/tool/token-counter#counter](https://www.runcell.dev/tool/token-counter#counter)
@@ -79,22 +79,10 @@ Contador simples e visual de tokens. Bom para uma primeira demonstração: cole 
 
 Playground mais avançado que permite comparar como diferentes modelos (GPT-4, LLaMA, Mistral etc.) tokenizam o mesmo texto de formas distintas. Use em sequência ao Runcell para aprofundar e mostrar que tokenização não é universal.
 
----
-
-## 06. Completando Palavras — Predição do Próximo Token
-
 ### Hugging Face — Next Token Prediction (alonsosilva)
 [https://alonsosilva-nexttokenprediction.hf.space](https://alonsosilva-nexttokenprediction.hf.space)
 
 Demo interativo que mostra, dado um texto de entrada, quais são os tokens mais prováveis para continuar a sequência — com as probabilidades de cada candidato. Perfeito para mostrar que o modelo não "pensa" nem "escolhe": ele calcula distribuições de probabilidade sobre o vocabulário inteiro e seleciona o próximo token a partir daí.
-
-### Hugging Face — Next Token Predictor (PeterPinetree)
-[https://huggingface.co/spaces/PeterPinetree/Next-Token-Predictor](https://huggingface.co/spaces/PeterPinetree/Next-Token-Predictor)
-
-Alternativa mais simples: dado um texto, mostra as palavras mais prováveis para continuar. Inclui controle de aleatoriedade (temperatura), o que cria uma ponte natural para o bloco seguinte sobre como o modelo "decide".
-
----
-
 ### Referência — Tamanho e Crescimento dos Modelos
 [https://artificialanalysis.ai](https://artificialanalysis.ai)
 
@@ -130,17 +118,18 @@ Nenhum link externo necessário. O próprio chatbot é o demo. Pergunte ao vivo 
 
 ### Chatbots com uso gratuito disponíveis para o demo
 
-| Chatbot | Empresa | Link |
-|---|---|---|
-| ChatGPT | OpenAI | [https://chatgpt.com](https://chatgpt.com) |
-| Gemini | Google | [https://gemini.google.com](https://gemini.google.com) |
-| Claude | Anthropic | [https://claude.ai](https://claude.ai) |
-| Grok | xAI (Elon Musk) | [https://grok.com](https://grok.com) |
-| Copilot | Microsoft | [https://copilot.microsoft.com](https://copilot.microsoft.com) |
-| Le Chat | Mistral | [https://chat.mistral.ai](https://chat.mistral.ai) |
-| DeepSeek | DeepSeek | [https://chat.deepseek.com](https://chat.deepseek.com) |
-| HuggingChat | Hugging Face | [https://huggingface.co/chat](https://huggingface.co/chat) |
-| Perplexity | Perplexity AI | [https://www.perplexity.ai](https://www.perplexity.ai) |
+| Chatbot     | Empresa         | Link                                                           |
+| ----------- | --------------- | -------------------------------------------------------------- |
+| ChatGPT     | OpenAI          | [https://chatgpt.com](https://chatgpt.com)                     |
+| Gemini      | Google          | [https://gemini.google.com](https://gemini.google.com)         |
+| Claude      | Anthropic       | [https://claude.ai](https://claude.ai)                         |
+| Grok        | xAI (Elon Musk) | [https://grok.com](https://grok.com)                           |
+| Copilot     | Microsoft       | [https://copilot.microsoft.com](https://copilot.microsoft.com) |
+| Le Chat     | Mistral         | [https://chat.mistral.ai](https://chat.mistral.ai)             |
+| DeepSeek    | DeepSeek        | [https://chat.deepseek.com](https://chat.deepseek.com)         |
+| HuggingChat | Hugging Face    | [https://huggingface.co/chat](https://huggingface.co/chat)     |
+| Perplexity  | Perplexity AI   | [https://www.perplexity.ai](https://www.perplexity.ai)         |
+| Qwen        | Alibaba Group   | https://qwen.ai/home                                           |
 ### Exemplos:
 ```txt
 ola bom dia, na seguinte frase: "Hoje eu acordei e fui a praia com meu amigo joca." Qual a oitava palavra?

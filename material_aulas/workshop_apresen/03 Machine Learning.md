@@ -92,7 +92,7 @@ Esse é o processo básico de treinamento em ML:
 
 O gradiente é como uma bússola que aponta na direção do erro crescente. Movendo-se na direção *oposta* ao gradiente (*descida do gradiente*), o modelo encontra progressivamente configurações de parâmetros que erram menos.
 
-> 🛠️ **Demo:** [[Recursos e Demos#3. Treinando um Modelo|Google Teachable Machine]] — veja esse ciclo acontecendo em tempo real, com a sua webcam como dado de entrada.
+> 🛠️ **Demo:** [https://teachablemachine.withgoogle.com](https://teachablemachine.withgoogle.com/) — veja esse ciclo acontecendo em tempo real, com a sua webcam como dado de entrada.
 
 ---
 

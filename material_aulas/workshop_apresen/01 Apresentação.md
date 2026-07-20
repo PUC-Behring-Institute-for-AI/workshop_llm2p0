@@ -4,7 +4,7 @@
 
 [[#O que esperar deste workshop]]
 [[#Como este workshop foi feito]]
-[[#Quem sou eu?]]
+[[#Quem somos nós?]]
 [[#Por que estou aqui hoje?]]
 [[#Vocabulário — As Palavras que a IA Tomou Emprestado]]
 [[#O que é um computador?]]
@@ -45,6 +45,11 @@ Isso não é uma confissão — é um ponto didático intencional.
 Usar uma ferramenta de IA para preparar um workshop *sobre* ferramentas de IA cria uma oportunidade única: **você está vendo o produto enquanto aprende sobre o processo**. Ao longo da apresentação, vou apontar momentos em que o comportamento do Claude durante a preparação ilustra exatamente o que estamos discutindo — seus acertos, seus limites, e as decisões que precisaram de julgamento humano.
 
 > *A IA foi o assistente. O workshop é nosso.*
+---
+
+## Quem somos nós?
+
+
 
 ---
 
@@ -250,6 +255,7 @@ Enquanto as apresentações acontecem, os participantes podem abrir um dos chatb
 | Le Chat    | Mistral       | [chat.mistral.ai](https://chat.mistral.ai)             |
 | DeepSeek   | DeepSeek      | [chat.deepseek.com](https://chat.deepseek.com)         |
 | Perplexity | Perplexity AI | [perplexity.ai](https://www.perplexity.ai)             |
+| Qwen       | Alibaba Group | https://qwen.ai/home                                   |
 
 > 💡 **Sugestão de primeiro teste:** Faça a mesma pergunta em dois chatbots diferentes e compare as respostas. Isso por si só já revela muito sobre como esses sistemas funcionam — e sobre o que eles *não* são.
 

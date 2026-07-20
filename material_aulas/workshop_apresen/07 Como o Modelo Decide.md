@@ -30,8 +30,6 @@ Com temperatura alta, a distribuição se achata: tokens menos prováveis ganham
 
 Pense assim: temperatura baixa é um músico tocando uma peça clássica ao pé da letra. Temperatura alta é o mesmo músico improvisando — pode ser genial, pode ser uma nota errada.
 
-> 🛠️ **Demo ao vivo:** [https://huggingface.co/spaces/PeterPinetree/Next-Token-Predictor](https://huggingface.co/spaces/PeterPinetree/Next-Token-Predictor) — ajuste a temperatura para 0.1 e para 1.5 e envie o mesmo prompt. Compare a previsibilidade e a qualidade das respostas.
-
 ---
 
 ## Alucinações — por que o modelo inventa fatos
